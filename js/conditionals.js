@@ -9,14 +9,14 @@ console.log ("Conditionals Exercises")
  // * color. Only worry about the colors defined below, if the color passed is not
  // * one of the ones defined below, return a message that says so
  // *
-    var color = prompt("What color are you thinking of right now?");
+    var colorChoice = prompt("What color are you thinking of right now?");
 
-    function analyzeColor(color) {
-            if (color === "blue") {
+    function analyzeColor(colorChoice) {
+            if (colorChoice === "blue") {
                 return alert("blue is the color of the sky.")
-            } else if (color === "red") {
+            } else if (colorChoice === "red") {
                 return alert("Strawberries are red.")
-            } else if (color === "cyan") {
+            } else if (colorChoice === "cyan") {
                 return alert("I don't know anything about cyan.");
             } else {
                 return alert("I've never heard of that color so you must have made it up.")
