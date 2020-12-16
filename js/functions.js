@@ -9,7 +9,7 @@ console.log ("Hello from the function.js")
  // * > sayHello("codeup") // returns "Hello, codeup!"
  // */
 function sayHello(name) {
-    return 'Hello ' + prompt (name);
+    return 'Hello, ' + name + '!';
 }
 
 //
@@ -19,8 +19,10 @@ function sayHello(name) {
 //  * Call the function 'sayHello' and pass your name as a string literal argument.
 //  * Store the result of the function call in a variable named 'helloMessage'.
     sayHello('Colin');
-    var helloMessage = ("Hello Colin")
+    var helloMessage = sayHello ("Colin")
     console.log (helloMessage)
+
+
 
   // console.log ('helloMessage') to check your work
 
@@ -32,7 +34,7 @@ function sayHello(name) {
 //  * variable to the 'sayHello' function. You should see the same output in the
 //  * console.
 //  */
-        var myName = ('Colin')
+        var myName = 'Colin'
         sayHello(myName)
 // // Don't modify the following line, it generates a random number between 1 and 3
 // // and stores it in a variable named random
@@ -43,8 +45,8 @@ var random = Math.floor((Math.random() * 3) + 1);
 //  * Create a function called 'isTwo' that takes a number as a parameter.
 //  * The function should return a boolean value based on whether or not the passed
 //  * number is the number 2.
-        function isTwo(someNum){
-            return (someNum === 2)
+        function isTwo(someNum) {
+            return (someNum === 2);
         }
 //  * Example
  //isTwo(1) // returns false
@@ -52,7 +54,8 @@ var random = Math.floor((Math.random() * 3) + 1);
 // isTwo(3) // returns false
 //  *
 //  * Call the function 'isTwo' passing the variable 'random' as a argument.
-        isTwo(random)
+       console.log(random);
+       console.log (isTwo(random));
 //  * console.log *outside of the function* to check your work (you should see a
 //  * different result everytime you refresh the page if you are using the random
 //  * number)
@@ -64,6 +67,11 @@ var random = Math.floor((Math.random() * 3) + 1);
 //  * restaurant. The function should accept a tip percentage and the total of the
 //  * bill, and return the amount to tip
 
+//FORMULA HERE
+// function calculateTip(tipPercent, totalBill){
+//
+//
+// }
 //  * Examples:
 //  * > calculateTip(0.20, 20) // returns 4
 //  * > calculateTip(0.25, 25.50) // returns 6.375
@@ -76,6 +84,8 @@ var random = Math.floor((Math.random() * 3) + 1);
 //  * prompt the user for the bill total and a percentage they would like to tip,
 //  * then display the dollar amount they should tip
 //  */
+//PROMPTS AND ALERTS HERE
+//
         function calculateTip(numInput1, numInput2) {
         var totalBill = prompt ("What is your total bill?");
         var tipPercent = prompt ("What percentage would you like to tip?");
