@@ -13,13 +13,13 @@ console.log ("Conditionals Exercises")
 
     function analyzeColor(colorChoice) {
             if (colorChoice === "blue") {
-                return alert("blue is the color of the sky.")
+                return ("blue is the color of the sky.");
             } else if (colorChoice === "red") {
-                return alert("Strawberries are red.")
+                return ("Strawberries are red.");
             } else if (colorChoice === "cyan") {
-                return alert("I don't know anything about cyan.");
+                return ("I don't know anything about cyan.");
             } else {
-                return alert("I've never heard of that color so you must have made it up.")
+                return ("I've never heard of " + colorChoice + " so, you must have made it up.")
             }
     }
  // * Example:
@@ -32,10 +32,10 @@ console.log ("Conditionals Exercises")
  // * Test your function by passing various string literals to it and
  // * console.logging the function's return value
  // */
-    console.log(analyzeColor('blue'))
-    console.log(analyzeColor('red'))
-    console.log(analyzeColor('cyan'))
-    console.log(analyzeColor('grey'))
+ //    console.log(analyzeColor('blue'), "blue is the color of the sky.");
+ //    console.log(analyzeColor('red'), "Strawberries are red.");
+ //    console.log(analyzeColor('cyan'), "I don't know anything about cyan");
+ //    console.log(analyzeColor('colorChoice'), "I've never heard of " + colorChoice + " so, you must have made it up.");
 
 // Don't change the next two lines!
 // These lines create two variables for you:
@@ -44,23 +44,55 @@ console.log ("Conditionals Exercises")
 //                  will contain a different color every time the page loads)
 var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 var randomColor = colors[Math.floor(Math.random() * colors.length)];
-/**
- * TODO:
- * Pass the `randomColor` variable to your function and console.log the results.
- * You should see a different message every time you refresh the page
- */
+// /**
+//  * TODO:
+//  * Pass the `randomColor` variable to your function and console.log the results.
+//  * You should see a different message every time you refresh the page
+//  */
 
-/**
- * TODO:
- * Refactor your above function to use a switch-case statement
- */
+// console.log(randomColor);
+// console.log(analyzeColor(randomColor));
+// /**
+//  * TODO:
+//  * Refactor your above function to use a switch-case statement
+//  */
+function analyzeColorSwitch(colorChoice) {
+    switch (colorChoice) {
+        case "blue":
+            return ("blue is the color of the sky.");
+        case "red":
+            return ("Strawberries are red.");
+        case "cyan":
+            return ("I don't know anything about cyan.");
+        default:
+            return ("I've never heard of " + colorChoice + " so, you must have made it up.")
+    }
+}
+   console.log(analyzeColorSwitch('blue'), "blue is the color of the sky.");
+   console.log(analyzeColorSwitch('red'), "Strawberries are red.");
+   console.log(analyzeColorSwitch('cyan'), "I don't know anything about cyan");
+   console.log(analyzeColorSwitch('colorChoice'), "I've never heard of " + colorChoice + " so, you must have made it up.");
+// EXAMPLE SWITCH-CASE STATEMENT WITH BREAKS FROM JUSTIN'S YOUTUBE LECTURE//
+function analyzeColorSwitchWithBreak(colorChoice) {
+    switch (colorChoice) {
+        case "blue":
+            return ("blue is the color of the sky.");
+        case "red":
+            return ("Strawberries are red.");
+        case "cyan":
+            return ("I don't know anything about cyan.");
+        default:
+            return ("I've never heard of " + colorChoice + " so, you must have made it up.")
+    }
+}
 
-/**
- * TODO:
- * Prompt the user for a color when the page loads, and pass the input from the
- * user to your `analyzeColor` function. Alert the return value from your
- * function to show it to the user.
- */
+
+// /**
+//  * TODO:
+//  * Prompt the user for a color when the page loads, and pass the input from the
+//  * user to your `analyzeColor` function. Alert the return value from your
+//  * function to show it to the user.
+//  */
 
 /* ########################################################################## */
 
