@@ -146,9 +146,10 @@ function calculateTotal(luckyNumber, totalAmount) {
     }
     return totalAmount - (discountNumber * totalAmount)
 }
-console.log(calculateTotal(0, 100)); 100 // returns 100
-console.log(calculateTotal(4, 100)); 50 // returns 50
-console.log(calculateTotal(5, 100)); 0 // returns 0
+
+// console.log(calculateTotal(0, 100)); 100 // returns 100
+// console.log(calculateTotal(4, 100)); 50 // returns 50
+// console.log(calculateTotal(5, 100)); 0 // returns 0
 
 /**
  * TODO:
@@ -158,7 +159,9 @@ console.log(calculateTotal(5, 100)); 0 // returns 0
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+var luckyNumber = Math.floor(Math.random() * 6);
+
+var totalBill = prompt ('What is your total bill?')
 
 /**
  * TODO:
