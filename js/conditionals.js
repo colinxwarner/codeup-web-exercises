@@ -143,6 +143,8 @@ function calculateTotal(luckyNumber, totalAmount) {
         case 5:
             discountNumber = 1;
             break;
+        default:
+            console.log("invalid input");
     }
     return totalAmount - (discountNumber * totalAmount)
 }
@@ -161,7 +163,15 @@ function calculateTotal(luckyNumber, totalAmount) {
 // Generate a random number between 0 and 6
 var luckyNumber = Math.floor(Math.random() * 6);
 
+function numberToCurrency(number) {
+    return "$" + number.toFixed(2);
+}
+
 var totalBill = prompt ('What is your total bill?')
+var message = "Your lucky number is; " + luckyNumber + ". "
+    + "Your price before the discount is: " + numberToCurrecncy(totalBill) + ". " +
+    + "Your price after the dicount id:" + numberToCurrency(calculateTotal(luckyNumber, totalBill)) + ". ";
+alert(message);
 
 /**
  * TODO:
@@ -179,3 +189,41 @@ var totalBill = prompt ('What is your total bill?')
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+
+function isNumeric(input) {
+    return !isNaN(input);
+}
+
+function createEvenOddMessage(number) {
+    return (number % 2 === 0) ? "Number is even." : "Number is odd.";
+}
+
+function createNumberPlus100Message(number) {
+    return number + " plus 100 is " + (number + 100);
+}
+
+function createNegativePositiveMessage(number) {
+    return (number < 0) ? "Number is negative" : "Number is positive";
+}
+
+function getUserNumAndInfo() {
+    var userWillEnterNumber = confirm("click OK to enter a number");
+    var userNumber;
+    if (userWillEnterNumber) {
+        userNumber = parseFloat(prompt("Please enter a number"));
+        // if the user input is a number
+        if (isNumeric(userNumber)) {
+            // alert even/odd message
+            alert(createEvenOddMessage(userNumber));
+            // alert number plus 100
+            alert(createNumberPlus100Message(userNumber));
+            // alert negative / positive message
+            alert(createNegativePositiveMessage(userNumber));
+        } else {
+            // alert not a number
+            alert("Input not a number!");
+        }
+    }
+}
+
+getUserNumAndInfo();
