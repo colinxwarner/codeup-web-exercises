@@ -1,20 +1,26 @@
 "use strict";
-console.log ("For Loops Exercises")
-/* ########################################################################## */
 
-//
+//console.log ("For Loops Exercises")
+
 // Exercises
 // -Create an HTML file named loops.html. Each of the following sections will instruct you to create a new javascript file. For each exercise, you should include a script tag on your html page that links the correct .js file.
 //
 // For Loops
 // 1. Create a file named for_loops.js inside the js directory and link it to your loops.html file.
-//
+
+
 // 2. Create a function named showMultiplicationTable that
 // accepts a number and console.logs the multiplication table for that number (just multiply by the numbers 1 through 10)
-//
-function showMultiplicationTable(num) {
 
-}
+// function showMultiplicationTable(num) {
+//     // create a loop that runs 10x
+//     for (var i = 1; i < 11; i += 1) {
+//         console.log(num + " x " + i + "=" + i * num);
+//     }
+// }
+
+//showMultiplicationTable(7);
+
 // For example, showMultiplicationTable(7) should output
 // 7 x 1 = 7
 // 7 x 2 = 14
@@ -27,6 +33,7 @@ function showMultiplicationTable(num) {
 // 7 x 9 = 63
 // 7 x 10 = 70
 
+
 // 3. Use a for loop and the code from the previous lessons to generate 10 random numbers between 20 and 200
 // and output to the console whether each number is odd or even. For example:
 // 123 is odd
@@ -34,6 +41,22 @@ function showMultiplicationTable(num) {
 // 24 is even
 // 199 is odd
 // ...
+
+// src - https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
+// function randomIntFromInterval(min, max) { // min and max included
+//     return Math.floor(Math.random() * (max - min + 1) + min);
+// }
+//
+// function createTenRandomEvenOddMessages() {
+//     var random, evenOddString;
+//     for (var i = 0; i < 10; i += 1) {
+//         random = randomIntFromInterval(20, 200);
+//         evenOddString = (random % 2 === 0) ? "even" : "odd";
+//         console.log(random + " is " + evenOddString);
+//     }
+// }
+
+//createTenRandomEvenOddMessages();
 
 // 4. Create a for loop that uses console.log to create the output shown below.
 // 1
@@ -45,6 +68,10 @@ function showMultiplicationTable(num) {
 // 7777777
 // 88888888
 // 999999999
+
+// for (var i = 1; i <= 9; i += 1); {
+//     console.log(String(i).repeat(i));
+// }
 
 // 5. Create a for loop that uses console.log to create the output shown below.
 // 100
@@ -68,78 +95,7 @@ function showMultiplicationTable(num) {
 // 10
 // 5
 
-// Break and Continue
-// 1. Create a file named break_and_continue.js in the js directory.
-// 2. Prompt the user for an odd number between 1 and 50.
-//    Use a loop and a break statement to continue prompting the user if they enter invalid input.
-// 3. Use a loop and the continue statement to output all the odd numbers between 1 and 50, except for the number the user entered.
-//    Your output should look like this:
+for (var i = 100; i > 0; i -= 5 ); {
+    console.log(i);
+}
 
-// Number to skip is: 27
-//
-// Here is an odd number: 1
-// Here is an odd number: 3
-// Here is an odd number: 5
-// Here is an odd number: 7
-// Here is an odd number: 9
-// Here is an odd number: 11
-// Here is an odd number: 13
-// Here is an odd number: 15
-// Here is an odd number: 17
-// Here is an odd number: 19
-// Here is an odd number: 21
-// Here is an odd number: 23
-// Here is an odd number: 25
-// Yikes! Skipping number: 27
-// Here is an odd number: 29
-// Here is an odd number: 31
-// Here is an odd number: 33
-// Here is an odd number: 35
-// Here is an odd number: 37
-// Here is an odd number: 39
-// Here is an odd number: 41
-// Here is an odd number: 43
-// Here is an odd number: 45
-// Here is an odd number: 47
-// Here is an odd number: 49
-
-// While Loops
-// 1. Create a file named while.js in the js directory.
-//
-// 2. Create a while loop that uses console.log() to create the output shown below.
-// 2
-// 4
-// 8
-// 16
-// 32
-// 64
-// 128
-// 256
-// 512
-// 1024
-// 2048
-// 4096
-// 8192
-// 16384
-// 32768
-// 65536
-
-// Do While Loop
-// 1. An ice cream seller can't go home until she sells all of her cones.
-//    First write enough code that generates a random number between 50 and 100 representing the amount of cones to sell
-//    before you start your loop.
-//    Inside of the loop your code should generate another random number between 1 and 5,
-//    simulating the amount of cones being bought by her clients.
-//    Use a do-while loop to log to the console the amount of cones sold to each person.
-//    This is a way get the random numbers for this exercise.
-// This is how you get a random number between 50 and 100
-
-// var allCones = Math.floor(Math.random() * 50) + 50;
-// // This expression will generate a random number between 1 and 5
-// Math.floor(Math.random() * 5) + 1;
-
-// The output should be similar to the following:
-
-// 5 cones sold...  // if there are enough cones
-// Cannot sell you 6 cones I only have 3...  // If there are not enough cones
-// Yay! I sold them all! // If there are no more cones
