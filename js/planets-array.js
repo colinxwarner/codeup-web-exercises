@@ -18,30 +18,30 @@
      * the step that it describes
      */
 
-    planets.unshift("The Sun");
+    //planets.unshift("The Sun");
     //console.log('Adding "The Sun" to the beginning of the planets array.')
     //console.log(planets);
 
-    planets.push("Pluto");
+    //planets.push("Pluto");
     //console.log('Adding "Pluto" to the end of the planets array.');
     //console.log(planets);
 
-    planets.shift();
+    //planets.shift();
     //console.log('Removing "The Sun" from the beginning of the planets array.');
     //console.log(planets);
 
-    planets.pop();
+    //planets.pop();
     //console.log('Removing "Pluto" from the end of the planets array.');
     //console.log(planets);
 
-    planets.indexOf("Earth");
+    //planets.indexOf("Earth");
     //console.log('Finding and logging the index of "Earth" in the planets array.');
 
-    planets.reverse();
+    //planets.reverse();
     //console.log("Reversing the order of the planets array.");
     //console.log(planets);
 
-    planets.sort();
+    //planets.sort();
     //console.log("Sorting the planets array.");
     //console.log(planets);
 })();

@@ -1,4 +1,4 @@
-(function(){
+//(function(){
     "use strict";
 
     var planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
@@ -26,6 +26,24 @@
      */
 
     var planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
+    let planetString = planetsArray.join("<br>");
+    console.log(planetsArray);
 
+// src - https://stackoverflow.com/questions/31901088/how-can-i-convert-a-string-in-to-a-valid-html-list-using-regexp
+// Regular Expression (RegEx) Walkthrough
+// \b\d+              # match 1 or more digits after a word boundary
+// \.                 # match one literal dot
+// \s+                # match 1 or more space
+// (.+?)              # match 1 or more any character and capture it group #1
+// \s*                # match 0 or more spaces
+// (?=...)            # a positive lookahead
+// (?=\b\d+\. |\s*$)  # match must be followed by a word boundary + digits + dot OR
+//                    # white spaces + line end
 
-})();
+    var regx = "<ul>\n" +
+    planetString.replace(/\b\d+\.\s+(.+?)\s*(?=\b\d+\. |\s*$)/g, "<li> $1 </li>\n") +
+    "</ul>\n";
+
+    console.log(regx);
+
+//})();
