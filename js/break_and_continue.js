@@ -6,6 +6,45 @@
 //    Use a loop and a break statement to continue prompting the user if they enter invalid input.
 // 3. Use a loop and the continue statement to output all the odd numbers between 1 and 50, except for the number the user entered.
 //    Your output should look like this:
+// src - https://www.youtube.com/watch?v=ABvCASsgkTo
+
+var userNum
+
+function isValid(input) {
+    input = parseFloat(input);
+    var isNumeric = !isNaN(input);
+    var isOdd = input % 2 !== 0;
+    var isInCorrectRange = input >= 1 && input <= 50;
+    return isNumeric && isOdd && isInCorrectRange;
+}
+function getUserNumber() {
+    var userNum;
+    while (true) {
+        userNum = prompt("Please enter an odd number between 1 and 50.");
+        if (isValid(userNum)) {
+            break;
+        }
+        alert("INVALID NUMBER!");
+    }
+    return userNum;
+}
+
+function createOddNumberMessages(userNum) {
+    console.log("Number to skip is " + userNum);
+    console.log(" ");
+    for(var i = 1; i < 50; i += 1) {
+        if (i === parseFloat(userNum)) {
+            console.log("Yikes! Skipping number: " + userNum);
+        }
+        if (i % 2 === 0) {
+            continue;
+        }
+        console.log("Here is an odd number: " + i);
+    }
+}
+
+userNum = getUserNumber();
+createOddNumberMessages(userNum);
 
 // Number to skip is: 27
 //
