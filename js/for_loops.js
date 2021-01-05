@@ -12,12 +12,12 @@
 // 2. Create a function named showMultiplicationTable that
 // accepts a number and console.logs the multiplication table for that number (just multiply by the numbers 1 through 10)
 
-// function showMultiplicationTable(num) {
-//     // create a loop that runs 10x
-//     for (var i = 1; i < 11; i += 1) {
-//         console.log(num + " x " + i + "=" + i * num);
-//     }
-// }
+function showMultiplicationTable(num) {
+    // create a loop that runs 10x
+    for (var i = 1; i < 11; i += 1) {
+        console.log(num + " x " + i + "=" + i * num);
+    }
+}
 
 //showMultiplicationTable(7);
 
@@ -43,18 +43,18 @@
 // ...
 
 // src - https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
-// function randomIntFromInterval(min, max) { // min and max included
-//     return Math.floor(Math.random() * (max - min + 1) + min);
-// }
+function randomIntFromInterval(min, max) { // min and max included
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
 //
-// function createTenRandomEvenOddMessages() {
-//     var random, evenOddString;
-//     for (var i = 0; i < 10; i += 1) {
-//         random = randomIntFromInterval(20, 200);
-//         evenOddString = (random % 2 === 0) ? "even" : "odd";
-//         console.log(random + " is " + evenOddString);
-//     }
-// }
+function createTenRandomEvenOddMessages() {
+    var random, evenOddString;
+    for (var i = 0; i < 10; i += 1) {
+        random = randomIntFromInterval(20, 200);
+        evenOddString = (random % 2 === 0) ? "even" : "odd";
+        console.log(random + " is " + evenOddString);
+    }
+}
 
 //createTenRandomEvenOddMessages();
 
@@ -95,7 +95,7 @@
 // 10
 // 5
 
-for (var i = 100; i > 0; i -= 5 ); {
-    console.log(i);
-}
+// for (var i = 100; i > 0; i -= 5 ); {
+//     console.log(i);
+// }
 
