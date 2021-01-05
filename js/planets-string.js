@@ -40,10 +40,25 @@
 // (?=\b\d+\. |\s*$)  # match must be followed by a word boundary + digits + dot OR
 //                    # white spaces + line end
 
-    var regx = "<ul>\n" +
-    planetString.replace(/\b\d+\.\s+(.+?)\s*(?=\b\d+\. |\s*$)/g, "<li> $1 </li>\n") +
-    "</ul>\n";
+    // var regx = "<ul>\n" +
+    // planetString.replace(/\b\d+\.\s+(.+?)\s*(?=\b\d+\. |\s*$)/g, "<li> $1 </li>\n") +
+    // "</ul>\n";
+    //
+    // console.log(regx);
 
-    console.log(regx);
+//ALTERNATE SOLUTION:
+// let htmlString = '<ul> <li>';
+//   htmlString += planetsArray.join('</li> <li>');
+//   htmlString += '</li> </ul>';
+//   console.log(htmlString);
 
+// ADDED TO HTML TO LINK TO JS FILE
+// <p id="demo"></p>
+//
+// document.getElementById("demo").innerHTML = htmlString;
+
+//let planetList = "<ul>"
+//   planetList += planetsArray.join("<li>");
+//   planetList += "<li></ul>"
+//   console.log(planetList);
 //})();
