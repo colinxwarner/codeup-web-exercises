@@ -177,7 +177,7 @@
         color: tan,
         canBreed: true,
         shotRecords: [],
-        bark: function
+       // bark: function
 
     }
 
