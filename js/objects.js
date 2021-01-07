@@ -1,18 +1,22 @@
 (function() {
     "use strict";
 
-    /**
+    /*
      * TODO:
      * Create an object with firstName and lastName properties that are strings
      * with your first and last name. Store this object in a variable named
      * `person`.
-     *
+
      * Example:
      *  > console.log(person.firstName) // "Rick"
      *  > console.log(person.lastName) // "Sanchez"
      */
+// var person = {
+//     firstName: "Colin",
+//     lastName: "Warner",
+// };
 
-    /**
+    /*
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
      * the firstName and lastName properties.
@@ -21,8 +25,15 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
+    var person = {
+        firstName: "Colin",
+        lastName: "Warner",
 
-    /** TODO:
+    };
+person.sayHello = function() {
+    return "Hello from " + this.firstName + ' ' + this.lastName;
+}
+    /* TODO:
      * HEB has an offer for the shoppers that buy products amounting to
      * more than $200. If a shopper spends more than $200, they get a 12%
      * discount. Write a JS program, using conditionals, that logs to the
@@ -35,14 +46,60 @@
      * represents one shopper. Use a foreach loop to iterate through the array,
      * and console.log the relevant messages for each person
      */
+    //
+    var shoppers = [
+        {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320}
+    ];
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
+    function calculateDiscount(amount, discountAmountThreshold, discountPercentage) {
+        return (amount > discountAmountThreshold) ? amount * discountPercentage : 0;
+    }
 
-    /** TODO:
+    function displayCurrency(amount) {
+        return "$" + amount.toFixed(2);
+    }
+
+    var discountAmountThreshold = 200;
+    var discountPercentage = .12
+
+    shoppers.forEach(function(shopper){
+        // Your program will have to display a line with the...
+        var shopperName = shopper.name; // name of the person
+        var amountPriorToDiscount = shopper.amount; // the amount before the discount
+        var amountOff = calculateDiscount(amountPriorToDiscount, discountAmountThreshold, discountPercentage);
+        var totalCost = amountPriorToDiscount - amountOff; // the amount after the discount
+        var message = shopperName +
+            ' purchased ' + displayCurrency(amountPriorToDiscount) +
+            ' and is getting ' + displayCurrency(amountOff) + ' off the purchase price ' +
+            'and is paying ' + displayCurrency(totalCost);
+        console.log(message);
+    }); // higher order function
+
+
+    // Why use for loop over forEach and vice versa?????:
+
+    /*
+    For Loop Use Case (benefit: more flexible)
+        Flexible iteration (forward/backward/skipping)
+        Do anything a certain numbers (not just traversing an array data)
+    For Each (benefit: more readable)
+        Only can be used on arrays of data
+        All of the elements in an array need to be accessed
+     */
+
+
+    // // each user's name
+    // for (var i = 0; i < shoppers.length; i += 1) {
+    //     console.log(shoppers[i].name);
+    // }
+    //
+    // shoppers.forEach(function(shopper) {
+    //     console.log(shopper.name);
+    // });
+
+    /* TODO:
      * Create an array of objects that represent books and store it in a
      * variable named `books`. Each object should have a title and an author
      * property. The author property should be an object with properties
@@ -54,8 +111,28 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+    var books = [
+             {title: "Big Book",
+                 author: {
+                    firstName: "John",
+                    lastName: "Doe",
+                 }
+             },
+             {title: "Medium Book",
+                 author: {
+                    firstName: "Jane",
+                    lastName: "Doe",
+                 }
+             },
+             {title: "Little Book",
+                 author: {
+                    firstName: "Jimmy",
+                    lastName: "Doe",
+                 }
+             }
+             ];
 
-    /**
+    /*
      * TODO:
      * Loop through the books array and output the following information about
      * each book:
@@ -79,8 +156,14 @@
      *      ---
      *      ...
      */
+    books.forEach(function (books, index) {
+        console.log("Book Title: " +
+            books.title + "\n " + "\t" + "Author:" +
+            books.author.firstName + " " +
+            books.author.lastName + "\n " + "\t" + "Book #:" + (index + 1) + "\n" + "---");
+    });
 
-    /**
+    /*
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
      *   name and returns a book object with the properties described
@@ -90,6 +173,11 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+function createBook(title, author) {
+    return //book object
+}
+
+
 
   /*  Mini Exercise 1
         Create a few beverage objects and assign values to each object for the following properties:
@@ -169,7 +257,7 @@
 
      */
 
-
+/*
     var dog = {
         breed: Bulldog,
         weightInPounds: 50,
@@ -180,7 +268,7 @@
        // bark: function
 
     }
-
+*/
 
 
 })();
