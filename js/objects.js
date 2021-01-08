@@ -173,6 +173,14 @@ person.sayHello = function() {
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+var title = {
+    return
+}
+
+var author = {
+
+}
+
 function createBook(title, author) {
     return //book object
 }
