@@ -5,9 +5,64 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Register With Us</title>
 </head>
 <body>
+    <form method="POST" action="https://request-inspector.glitch.me/">
 
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text">
+        <br>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password">
+        <br>
+
+        <input type="submit">
+    </form>
 </body>
 </html>
+<!-- Exercises
+For this exercise, we will be building a registration page for Veridian Dynamics.
+We will be utilizing Request Inspector to view the resulting data that our form submits.
+Throughout this exercise, you should be submitting your form and viewing the resulting data on the Request Inspector page.
+
+Create a file named forms.html.
+
+Using what you have learned in the previous lessons,
+add the necessary HTML document structure to the page with a title of: "Register With Us".
+
+Create an empty form element. We will be adding to this throughout the exercise.
+
+Below is an example of using the Request Inspector.
+
+
+<form method="POST" action="https://request-inspector.glitch.me/">
+
+Create text fields for email and password with appropriate placeholder values.
+
+Create a textarea named "bio". This is for the user to fill out a short description of themselves.
+
+Create a "How did you hear about us" section that contains radio buttons.
+The values should be "billboard", "radio advertisement", "internet advertisement", and "other".
+Only one of the values should be allowed to be selected at a time.
+
+What happens if the inputs are given different name attributes?
+Change these inputs so that multiple answers are allowed to be selected.
+Create a dropdown that asks the user what web browser they are using.
+
+As you work through the steps above, you should:
+
+Make sure all of your form elements have labels.
+Make sure there's a way to submit the form, adding a submit button will solve this.
+Ensure that all of your form values are being submitted to the Request Inspector.
+Experiment with different attribute values:
+What do you notice when changing the form's request method from GET to POST?
+What happens if you leave off the name attribute on an input?
+What happens if you leave off the id attribute on a form input?
+
+Bonus
+To configure your forms to send you an email, sign up for the free plan on El Formo.
+El Formo will provide you a URL for your form's action attribute.
+ When you use this action, the El Formo service will email you each form submission.
+ This is a great way to get forms working online super quick! -->
