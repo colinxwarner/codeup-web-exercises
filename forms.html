@@ -8,18 +8,75 @@
     <title>Register With Us</title>
 </head>
 <body>
-    <form method="POST" action="https://request-inspector.glitch.me/">
+<form method="POST" action="https://request-inspector.glitch.me/">
 
-        <label for="username">Username</label>
-        <input id="username" name="username" type="text">
+    <label for="username">Username</label>
+    <input id="username" name="username" type="text" placeholder="your internet name">
+    <br>
+
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" placeholder="your secret letters">
+    <br>
+
+    <button type="submit">send your info into the Matrix</button>
+    <br>
+
+    <section>
+        <h3>Bio</h3>
+        <label for="Bio">Bio</label>
+        <br>
+        <textarea name="Bio" id="Bio" cols="30" rows="10"
+                  placeholder="Full Name, Social Security Number, Date of Birth, Street where you grew up on, Pet's name."></textarea>
+    </section>
+    <br>
+
+
+    <fieldset>
+        <legend>How did you hear about us</legend>
+        <input type="radio" name="billboard" id="billboard" value="billboard">
+        <label for="billboard">Billboard</label>
+        <input type="radio" name="radioAd" id="radioAd" value="radio advertisement">
+        <label for="radioAd">Radio Advertisement</label>
+        <input type="radio" name="internetAd" id="internetAd" value="internet advertisement">
+        <label for="internetAd">Internet Advertisement</label>
+        <input type="radio" name="ghosts" id="ghosts" value="ghosts">
+        <label for="ghosts">the haunting whispers of ghosts</label>
+        <input type="radio" name="other" id="other" value="other">
+        <label for="other">Other</label>
+    </fieldset>
+    <br>
+
+    <fieldset>
+        <legend>If you heard about us from ghosts, who you gonna call?</legend>
+        <input type="radio" name="Ghostbusters" id="Ghostbusters" value="Ghostbusters">
+        <label for="Ghostbusters">Ghostbusters</label>
+        <input type="radio" name="haunted" id="haunted" value="haunted">
+        <label for="haunted">No one. I enjoy the comforting guidance of the departed</label>
+        <input type="radio" name="Winchesters" id="Winchesters" value="Winchesters">
+        <label for="Winchesters">The <strong>ruggedly handsome</strong> and <em>oddly feminine</em> team of the
+            Winchester brothers</label>
+    </fieldset>
+    <br>
+    <!--<section>
+        <h3>How did you hear about us?</h3>
         <br>
 
-        <label for="password">Password</label>
-        <input id="password" name="password" type="password">
-        <br>
+        A <input type="radio" name="billboard" value="billboard"><br>
+        B <input type="radio" name="radio advertisement" value="radio advertisement"><br>
+        C <input type="radio" name="internet advertisement" value="internet advertisement"><br>
+        D <input type="radio" name="other" value="other"><br>
 
-        <input type="submit">
-    </form>
+    </section>-->
+    <label>
+        <h3>What browser are you using?</h3>
+        <select name="coffee_preference">
+            <option value="lChrome">Chrome</option>
+            <option value="Firefox">Firefox</option>
+            <option value="Safari">Safari</option>
+            <option value="Ouija">Ouija Board</option>
+        </select>
+    </label>
+</form>
 </body>
 </html>
 <!-- Exercises
