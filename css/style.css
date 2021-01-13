@@ -4,7 +4,35 @@ line
 comment
 */
 
-.fancy-header {
-    color: purple; /* single line comment */
-    text-decoration: underline;
+body {
+    background-color: lightgrey;
+    background-image: url(../img/download.png);
+    background-repeat: no-repeat;
+    background-size: 800px;
+    background-position: center;
+    background-blend-mode: darken;
+    color: darkgreen;
+    font-family: "Courier New", monospace;
 }
+.fancy-header {
+    color: black; /* single line comment */
+    text-decoration: underline;
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    color: darkred;
+    font-weight: bold;
+}
+
+/*ul {
+    list-style-image: url(../img/giphy.gif);
+    list-style-position: outside;
+
+}*/
