@@ -17,10 +17,10 @@ body, html {
     font-family: Arial, Ubuntu, sans-serif;
 }
 header {
-    background-image: url("https://picsum.photos/1200/300");
-    background-size: cover;
-    min-height: 300px;
-    padding-top: 275px;
+    background-image: url("../img/twitter2.jpg");
+    background-size: auto;
+    min-height: 250px;
+    padding-top: 300px;
 }
 a {
     color: var(--link-color);
