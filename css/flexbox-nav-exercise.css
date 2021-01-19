@@ -36,10 +36,10 @@ li:nth-child(3) {
     margin: 0;
 }
 body {
-    margin: 0;
+    background-color: white;
 }
-nav {
-    background: lightgrey;
+.container {
+    background-color: lightgrey;
 }
 ul {
     list-style: none;
@@ -50,7 +50,7 @@ ul {
 nav a {
     text-decoration: none;
     color: white;
-    font-family: Verdana;
+    font-family: Verdana, sans-serif;
     padding: 1em;
     display: inline-block;
 }
@@ -60,10 +60,7 @@ nav a:hover {
     /*links display blue on hover*/
     color: blue;
 }
-li:nth-child(3) {
-    margin-right: auto;
-}
-.nav-link {
+.nav-links {
     display: flex;
     list-style: none;
     padding: 0;
@@ -82,18 +79,19 @@ li:nth-child(3) {
     margin: 0 5px;
     padding: 1vw;
 }
-#logo {
+#Logo {
     font-family: 'Montserrat', sans-serif;
-    font-size: 3vw;
+    font-size: 3em;
     padding: .2em 0;
     margin: auto;
+    position: absolute;
 }
 .nav-item:nth-child(6) {
     margin-left: auto;
 }
 .nav-item:nth-child(5) {
     position: absolute;
-    left: calc(50% - 2vw);
+    left: calc(50% - 2em);
 }
 /* Google Fonts used for logo and link text ("Montserrat" and "Work Sans", respectively) */
 /* the "Logo" text is 3em with .2em of padding above and below */
