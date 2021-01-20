@@ -1,0 +1,8 @@
+/*
+When needing to override Bootstrap's pre-set global box sizing:
+
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+*/
