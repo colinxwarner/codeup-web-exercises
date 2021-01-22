@@ -1,0 +1,30 @@
+/*
+When needing to override Bootstrap's pre-set global box sizing:
+
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+nav {
+
+}
+.jumbotron {
+    background-image: url("../img/pizza-monster.jpg");
+
+    text-align: center;
+}
+
+.jumbotron h1 {
+    background-color: white;
+    opacity: .5;
+}
+
+/* @media ???????  */
+
+

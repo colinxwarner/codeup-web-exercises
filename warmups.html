@@ -48,21 +48,45 @@ returns a string of the first letters in lowercase of all the user firstName pro
 
     function returnUserFirstLetters(userArr) {
         var output = "";
-        for (var i = 0; i < userArr.length; i+=1 ) {
+        for (var i = 0; i < userArr.length; i += 1) {
             output += userArr[i].firstName.charAt(0).toLowerCase();
         }
         return output
     }
-   returnUserFirstLetters(users) // returns the value "jcb"
-/*In case anyone else was wondering… The charAt() method is used to get the specified character from a string.
-Syntax : str.charAt(index). Where index represents an integer between 0 and 1-less-than the length of the string.*/
 
-/* Write a JS function that returns the number 7 */
-       (function () {
-        return 7;
-    }
+    returnUserFirstLetters(users) // returns the value "jcb"
+        /*In case anyone else was wondering… The charAt() method is used to get the specified character from a string.
+        Syntax : str.charAt(index). Where index represents an integer between 0 and 1-less-than the length of the string.*/
+
+        /* Write a JS function that returns the number 7 */
+        (function () {
+            function seven() {
+                return 7;
+            }
 
 
+            // console.log(seven());
+
+            /* Write a JavaScript function that takes in 2 numbers, and returns a boolean representing whether the
+             first number is evenly divisible by the second number passed into the function.
+             If any argument passed into the function is not a number, the function should return false. */
+
+            function isFactor(num1, num2) {
+                if (parseInt(num2) % parseInt(num1) === 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+    // David's solution:
+    // function isFactor(num1, num2) {
+    //    if (isNan(num1) || isNaN(num2) || typeof
+    //       return true;
+    //    } else {
+    //       return false;
+    //    }
+    // }
 
 </script>
 </body>
