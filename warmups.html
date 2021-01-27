@@ -79,14 +79,54 @@ returns a string of the first letters in lowercase of all the user firstName pro
                 }
             }
 
-    // David's solution:
-    // function isFactor(num1, num2) {
-    //    if (isNan(num1) || isNaN(num2) || typeof
-    //       return true;
-    //    } else {
-    //       return false;
-    //    }
-    // }
+            // David's solution:
+            // function isFactor(num1, num2) {
+            //    if (isNan(num1) || isNaN(num2) || typeof
+            //       return true;
+            //    } else {
+            //       return false;
+            //    }
+            // }
+
+            //
+
+            //Write a JS function that takes in an array as an argument, and returns a new array containing
+            // the first and last elements of the passed array.
+
+            function firstLastOfArr(arr) {
+                var bucket = [];
+                bucket.push(arr[0]);
+                bucket.push(arr[arr.length - 1]);
+                return bucket
+            }
+
+            console.log(firstLastOfArr(ar))
+
+
+            /* Audi's Solution:
+
+            let array = ['Where', 'the ','wild ','things', 'are']
+            function theArray() {
+            let first = array[0];
+            let last = array[array.length-1];
+            document.write("First element is, " + first +  " The Last element is "+ last);
+            }
+
+            Emily's Solution:
+
+            let arr = ["I", "study", "JavaScript"];
+            arr.splice(1,1);
+            alert(arr);
+
+             */
+
+
+
+
+
+
+
+
 
 </script>
 </body>
