@@ -25,6 +25,11 @@
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
+<button id="mainButton">Change Header</button>
+<button id="subButton">Change Sub Header</button>
+<button id="colorButton">Change Color</button>
+<button id="missionAccomplished">Finish Him!!!</button>
+
 <script>
     (function () {
         "use strict";
@@ -32,36 +37,69 @@
         let mainHeader = document.getElementById("main-header");
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = "Javascript is Cool";
+        //mainHeader.innerHTML = "Javascript is Cool";
+
         // TODO: Uncomment the next line and get the sub header element by id
         let subHeader = document.getElementById("sub-header");
 
         // TODO: Set the text color of subHeader to blue
-        subHeader.style.color = "blue";
+        //subHeader.style.color = "blue";
+
         // TODO: Uncomment the next line and get all list items
         let listItems = Array.from(document.getElementsByTagName("li"));
 
         // TODO: Set text color on every other list item to grey
         // TODO: Set text color of li with data-dbid = 1 to blue
-        let makeGrey = true;
+        //let makeGrey = true;
 
-        listItems.forEach((li) => {
-            if (makeGrey) {
-                li.style.color = "grey";
-            }
-            if (li.getAttribute("data-dbid") === "1") {
-                li.style.color = "blue"
-            }
-            makeGrey = !makeGrey;
+        //listItems.forEach((li) => {
+        //    if (makeGrey) {
+        //        li.style.color = "grey";
+        //    }
+        //    if (li.getAttribute("data-dbid") === "1") {
+        //        li.style.color = "blue"
+        //    }
+        //    makeGrey = !makeGrey;
 
-        })
+        //})
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        let subParagraphs = document.querySelectorAll(".sub-paragraph");
+        let subParagraphs = document.getElementsByClassName(".sub-paragraph");
         // let subParagraphs = Array.from(document.getElementByClassName('sub-paragraph'));
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
         Array.from(document.getElementsByClassName("sub-paragraph"))[0].innerHTML = "Mission Accomplished";
         // subParagraphs[0].textContent = "Mission Accomplished!";
+
+        //BUTTONS
+
+        var mainButton = document.getElementById('mainButton');
+        mainButton.addEventListener('click', function () {
+            mainHeader.innerHTML = 'Javascript is Cool';
+        });
+
+
+        var subButton= document.getElementById('subButton');
+        subButton.addEventListener('click', function () {
+            subHeader.style.color = '#0000FF';
+        });
+
+        var colorButton= document.getElementById('colorButton');
+        colorButton.addEventListener('click', function () {
+            for (var i = 0; i < listItems.length; i++) {
+                if (i % 2 == 1) {
+                    listItems[i].style.color = '#808080';
+                } else {
+                    listItems[0].style.color="#0000FF";
+                }
+            }
+        });
+
+        var missionAccomplished= document.getElementById('missionAccomplished');
+        missionAccomplished.addEventListener('click', function () {
+            subParagraphs[0].innerHTML = "Mission Accomplished!"
+        });
+
+
     })
     ();
 </script>
