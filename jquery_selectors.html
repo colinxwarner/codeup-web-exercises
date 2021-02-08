@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Selectors</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- GOOGLE CDN FOR JQUERY MAKES LOADING FASTER-->
+    <style> /* BOOTSTRAP HERE BETWEEN STYLE TAGS */
+        body{
+            font-size: 17px;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            line-height: 1.5em;
+        }
+        header{
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px #000 solid;
+            margin-bottom: 10px;
+        }
+        #container{
+            width: 90%;
+            margin: auto;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JQuery Selectors</h1>
+    </header>
+    <div id="container"> <!-- INSERT HTML CODE SAMPLE HERE BETWEEN DIV TAGS-->
+        <h1 id="heading1">Header Here</h1>
+        <p id="para1">
+            Oh, how awful. Did he at least die painlessly? …To shreds, you say. Well, how is his wife holding up?
+            …To shreds, you say. You've killed me! Oh, you've killed me! Ooh, name it after me! Oh, but you can.
+            <strong> But you may have to metaphorically make a deal with the devil.</strong>
+            <em> And by "devil", I mean Robot Devil.</em> And by "metaphorically", I mean get your coat.
+        </p>
+        <h1 class="heading2">Header Here</h1>
+        <p class="para2">
+            Oh, how awful. Did he at least die painlessly? …To shreds, you say. Well, how is his wife holding up?
+            …To shreds, you say. You've killed me! Oh, you've killed me! Ooh, name it after me! Oh, but you can.
+            <strong> But you may have to metaphorically make a deal with the devil.</strong>
+            <em> And by "devil", I mean Robot Devil.</em> And by "metaphorically", I mean get your coat.
+        </p>
+        <strong> But you may have to metaphorically make a deal with the devil.</strong>
+        <ul id="list">
+            <li>No, she'll probably make me do it.</li>
+            <li>Would you censor the Venus de Venus just because you can see her spewers?</li>
+            <li>No. We're on the top.</li>
+        </ul>
+        <input type="button" value="Button 1">
+        <input type="submit" value="Submit">
+        <input type="text">
+
+        <a href="http://google.com">Google</a>
+        <a href="http://yahoo.com">Yahoo</a>
+    </div>
+
+
+<script>
+    // JS CODE GOES HERE //
+    //$("h1").hide(); --- ALL H1 ELEMENTS HIDE
+    //$("h1#heading1").hide(); --- THE H1 WITH HEADING1 ID IS HIDDEN. CAN JUST USE ID
+    //$(".heading2").hide(); --- ANYTHING WITH CLASS OF HEADING2 IS HIDDEN
+
+    //$("p strong").css("color", "red"); --- TARGETS ALL STRONG ELEMENTS INSIDE OF <P> ELEMENTS.
+    //                                       USES THE CSS METHOD WITH "NAME", "VALUE" INPUT.
+    //                                       NOTE THE STRONG ELEMENT OUTSIDE OF THE <P> IS NOT AFFECTED.
+    //                                       IF WE REMOVED THE P // $("strong") // IT WOULD AFFECT ALL STRONG ELEMENTS.
+    //$("ul#list li:first").css("color", "blue"); --- TARGETS THE FIRST LI IN THE UL WITH ID=LIST WITH CSS METHOD.
+    //$("ul#list li:last").css("color", "green"); ---
+    //$("ul#list li:even").css("background-color", "yellow"); ---
+    //$("ul#list li:odd").css("background-color", "lightgrey"); ---
+    //$("ul#list li:nth-child(3n)").css("list-style", "none"); --- USING NTH CHILD WE SELECT EVERY 3RD LI AND REMOVE THE BULLET.
+    //$(":button").hide(); --- USES TYPE (SIGNIFIED BY :) TO HIDE.
+    //$("[href]").css("color", "pink"); --- CHANGES ALL ELEMENTS WITH HREF ATTRIBUTE.
+    //$("a[href='http://yahoo.com']").css("color", "orange"); --- TARGETS THE VALUE OF AN ATTRIBUTE AND
+    //                                                            TAKES PRECEDENT OVER ABOVE RULE B/C SPECIFICITY
+    //$("*").hide(); --- ASTERISK TARGETS EVERYTHING!!!
+</script>
+
+    <!-- SELECTORS EXERCISE INSTRUCTIONS BELOW
+
+Id Selectors
+Create content in your HTML file using at least the following elements: h1, p, ul, li, div.
+Add several attributes to your elements; you will need both id and class attributes.
+Use jQuery to select an element by the id. Alert the contents of the element.
+Update the jQuery code to select and alert a different id.
+Use the same id on 2 elements. How does this change the jQuery selection?
+Remove the duplicate id. Each id should be unique on that page.
+
+Class Selectors
+Remove your custom jQuery code from previous exercises.
+Update your code so that at least 3 different elements have the same class named codeup.
+Using jQuery, create a border around all elements with the class codeup that is 1 pixel wide and red.
+Remove the class from one of the elements. Refresh and test that the border has been removed.
+Give another element an id of codeup. Does this element get a border now?
+
+Element Selectors
+Remove your custom jQuery code from previous exercises.
+Using jQuery, set the font-size of all li elements to 20px.
+Craft selectors that highlight all the h1, p, and li elements.
+Create a jQuery statement to alert the contents of your h1 element(s).
+
+Multiple Selectors
+Combine your selectors that highlight all the h1, p, and li elements.
+
+    -->
+
+<script src="js/jquery-3.5.1.js"></script>
+<script src="js/jquery_exercises.js"></script>
+</body>
+</html>
