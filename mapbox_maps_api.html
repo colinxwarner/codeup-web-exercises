@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'/>
+    <title>Mapbox API</title>
+    <!-- <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> -->
+    <!-- <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.js'></script> -->
+    <!-- <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.css' rel='stylesheet' /> -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet'/>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div id='map' style="width: 100%; height: 700px"></div>
+<script src="js/keys.js"></script>
+<!--<script src="js/mapbox-maps-geocode-utils.js"></script> REFACTORED BELOW TO NOT NEED THIS FILE -->
+
+<!-- WIP ON ZOOM BUTTONS -->
+<!--    <button id="zoom5">5x</button>-->
+<!--    <button id="zoom15">15x</button>-->
+<!--    <button id="zoom20">20x</button>-->
+
+<script>
+
+    mapboxgl.accessToken = MAPBOX_TOKEN; // REF mapboxToken TO HIDE MAPBOX API KEY
+
+    let map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11', //stylesheet location
+        center: [-87.72233, 35.03933], // starting position [lng, lat]
+        zoom: 4,  // starting zoom
+    });
+
+    // Add zoom and rotation controls to the map.
+    map.addControl(new mapboxgl.NavigationControl({container: document.querySelector('body')}));
+
+    // ARRAY OF OBJECTS (COFFEE PROJECT)
+    let restaurants = [
+        {
+            lnglat: [-77.40962, 34.76561],
+            name: "The Old Siam",
+            features: {
+                address: "1215 N Marine Blvd, Jacksonville, NC 28540, United States",
+                cuisine: "Authentic Thai",
+                favorite: "Tom Kha Gai"
+            },
+        },
+        {
+            lnglat: [-77.29674, 38.63545],
+            name: "Sakura",
+            features: {
+                address: "14595 Potomac Mills Rd, Woodbridge, VA 22192, United States",
+                cuisine: "Japanese Sushi Bar and Steakhouse",
+                favorite: "Chef's Special"
+            },
+        },
+        {
+            lnglat: [-98.01358, 30.13161],
+            name: "The Salt Lick",
+            features: {
+                address: "18300 Farm to Market Rd 1826, Driftwood, TX 78619, United States",
+                cuisine: "All you can eat BBQ",
+                favorite: "Everything!"
+            },
+        }
+
+    ]
+
+    // ADDING MARKER AND POPUP WHEN CLICKED
+
+    function placeMarkerAndPopup(restaurant) {
+        let popup = new mapboxgl.Popup()
+            .setHTML(restaurant.name + "<br>" + restaurant.features.address + "<br>" + "Cuisine: " + restaurant.features.cuisine + "<br>" + "Favorite Meal: " + restaurant.features.favorite);
+
+        let marker = new mapboxgl.Marker()
+            .setLngLat(restaurant.lnglat)
+            .addTo(map)
+            .setPopup(popup);
+
+    }
+
+    restaurants.forEach(placeMarkerAndPopup);
+
+</script>
+
+</body>
+</html>
+
+
+<!--
+Exercises
+Please follow the instructions below. Remember to commit your changes after each step. At the end of the exercise, push your changes to GitHub.
+
+Generate a Mapbox API Key using the steps from above
+Create a new file named mapbox_maps_api.html and add a map using the next steps.
+Generate a map that shows the city with your favorite restaurant using geocoding.
+Redraw the map of the above location at zoom levels 5, 15, and 20. Do this by simply changing the value of zoom level where the map properties are initially set and refresh the page to see the changes. Can the zoom be changed programmatically after the initial map is drawn?
+Create a marker on your map of the exact location of your favorite restaurant set the zoom to allow for best viewing distance.
+Create a popup with the name of the restaurant.
+Make sure the info window does not display until the marker has been clicked on.
+Refactor your code to display at least three of your favorite restaurants with information about each. Create an array of objects with information about each restaurant to accomplish this. Use a .forEach() loop rather than a for loop.
+
+Bonuses (roughly in ascending order of challenge)
+Info windows can contain basic HTML, not just plain text. Add some additional information about your restaurant to the popup such as why it is your favorite, dishes you like, images, etc.
+Add a select input that allows the user to change the zoom level to 5, 15, or 20.
+Add a text box for the user to enter an address that will use geocoding to center the map and place a marker on that location.
+Add a button that will hide all markers.
+Using this <https://docs.mapbox.com/mapbox-gl-js/example/animate-marker/> as a starting point, animate a marker to bounce up and down. Alter the animation to stop after two seconds. Make the amount of bounce animation scale according to zoom level.
+Replace the generic marker icon with an image that is more appropriate for each restaurant. A tutorial for this can be found at https://docs.mapbox.com/help/tutorials/custom-markers-gl-js/
+
+-->
+
+<!--   ROUGH DRAFT WORK FROM MAPBOX API EXERCISE
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Display a map</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <style>
+        body { margin: 0; padding: 0;}
+
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+        .marker {
+            background-image: url('mapbox-icon.png');
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .restInfo {
+            position: absolute;
+            font-family: sans-serif;
+            margin-top: 5px;
+            margin-left: 5px;
+            padding: 5px;
+            width: 30%;
+            border: 2px solid black;
+            font-size: 14px;
+            color: #222;
+            background-color: #fff;
+            border-radius: 3px;
+        }
+
+        .mapboxgl-popup {
+            max-width: 200px;
+        }
+
+        .mapboxgl-popup-content {
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
+</head>
+<body>
+<div id="map" style="position: center; width:80%; height: 80vh; margin: 15vh auto; border: 5px solid black;"></div>
+<div class='restInfo'>
+    <div><strong>Type:</strong> <span id='type'></span></div>
+    <div><strong>Location:</strong> <span id='loc'></span></div>
+    <div><strong>Why:</strong> <span id='why'></span></div>
+</div>
+<script src="js/keys.js"></script>
+<script>
+    mapboxgl.accessToken = mapboxToken;
+    let map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [-77.40947, 34.76557], // starting position [long, lat]   //center: [-98.49, 29.42], -SAN ANTONIO
+        zoom: 9 // starting zoom
+    });
+
+    let geojson = {
+        type: 'FeatureCollection',
+        features: [{
+            type: 'Feature',
+            geometry: {
+                type: 'Point',
+                coordinates: [-77.032, 38.913]
+            },
+            properties: {
+                title: 'Mapbox',
+                description: 'Washington, D.C.'
+            }
+        },
+            {
+                type: 'Feature',
+                geometry: {
+                    type: 'Point',
+                    coordinates: [-122.414, 37.776]
+                },
+                properties: {
+                    title: 'Mapbox',
+                    description: 'San Francisco, California'
+                }
+            }]
+    };
+
+    // add markers to map
+    geojson.features.forEach(function(marker) {
+
+        // create a HTML element for each feature
+        var el = document.createElement('div');
+        el.className = 'marker';
+
+        // make a marker for each feature and add to the map
+        new mapboxgl.Marker(el)
+            .setLngLat(marker.geometry.coordinates)
+            .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+            .addTo(map);
+    });
+    // Add zoom and rotation controls to the map.
+    map.addControl(new mapboxgl.NavigationControl());
+
+    let typeDisplay = document.getElementById('type');
+    let locDisplay = document.getElementById('loc');
+    let whyDisplay = document.getElementById('why');
+
+// ADDING A MARKER TO THE MAP (SAN ANTONIO ZOO IN BELOW EXAMPLE)
+// let marker = new mapboxgl.Marker()
+//     .setLngLat([-77.40947, 34.76557])
+// new mapboxgl.Marker(el)
+//     .setLngLat(marker.geometry.coordinates)
+//     .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+//         .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+//     .addTo(map);
+
+//??? DROPPING IN A SEARCHBOX ???
+/* map.addControl(
+new MapboxGeocoder({
+accessToken: mapboxgl.accessToken,
+mapboxgl: mapboxgl
+})
+); */
+
+//
+// function geocode(search, token){
+//     let baseUrl = "https://api.mapbox.com";
+//     let endPoint = "/geocoding/v5/mapbox.places"
+//         // return $.get(baseUrl + endPoint + encodeURI(search)+".json?access_token="+token).done(function (data) {
+//         //     return data.features[0].center;
+//         // }
+//     return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+//         .then(function(res) {
+//             return res.json();
+//             // to get all the data from the request, comment out the following three lines...
+//         }).then(function(data) {
+//             return data.features[0].center;
+//         });
+// }
+// PROVIDE ADDRESS THEN ADD MARKER
+// geocode("600 Navarro St #600, San Antonio, TX 78205", mapboxToken).then(function(data){
+//     //console.log(data);   ---Provides long, lat data
+//     var codeupMarker = new mapboxgl.Marker()
+//         .setLngLat(data)
+//     .addTo(map);
+// });
+
+// reverseGeocode({lng: -97.9414, lat: 29.8833}, mapboxToken).then(function(data){
+//     console.log(data)
+//})
+
+
+</script>
+
+</body>
+</html>
+-->
