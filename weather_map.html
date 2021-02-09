@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Open Weather Map</title>
+    <!-- MEDIA QUERIES (START MOBILE WORK TO DESKTOP) -->
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- BOOTSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+            integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+            integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <!-- MAPBOX -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet'/>
+    <style>
+        /* CSS IN HEAD. KEEPS FROM HAVING TO LINK TO A STYLE SHEET */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #weather {
+
+        }
+
+        #map {
+            width: 100%;
+
+        }
+
+    </style>
+</head>
+<body>
+    <!-- THIS IS WHERE THE PAGE STARTS. STARTING WITH THE BAR ACROSS THE TOP AS IN THE EXAMPLES -->
+    <nav class="navbar">
+        <p id="header">Weather App in P tag...</p>
+    </nav>
+
+    <h1>or Weather App in H1?</h1>
+    <!-- WEATHER FORECAST CARDS-->
+    <div id="weather">
+        <!-- PUT 5-DAY FORECAST HERE. CARDS? HOW TO POPULATE THE DATA TO THE CARDS? -->
+        <!-- How do we want to do this? Cards? We need the info for the current day + 4 more. Maybe list with bootstrap alignment in a row?<br>
+            We definitely need the weather one call API to populate the info here.-->
+        <div id="day1"></div>
+        <div id="day2"></div>
+        <div id="day3"></div>
+        <div id="day4"></div>
+        <div id="day5"></div>
+    </div>
+
+    <hr>
+
+    <div id="map" style="width: 100%; height: 700px">
+
+
+
+
+    </div>
+    <!-- END HTML-->
+    <!-- JQUERY LIBRARY IN JS FOLDER  -->
+    <script src="js/jquery-3.5.1.js"></script>
+    <!-- API KEYS -->
+    <script src="js/keys.js"></script>
+
+    <script>
+        // JS GOES HERE
+
+        //INCLUDE READY FUNCTION TO ENSURE ALL ELEMENTS ARE LOADED DUE TO THE AMOUNT OF DATA BEING USED???
+        // (function() {
+        //     "use strict"
+        //     $(document).ready(function () {
+
+
+        mapboxgl.accessToken = MAPBOX_TOKEN; // REF mapboxToken TO HIDE MAPBOX API KEY
+
+        let map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11', //stylesheet location
+            center: [-98.4936, 29.4241], // starting position [lng, lat]
+            zoom: 8,  // starting zoom
+        });
+
+                let marker = new mapboxgl.Marker()
+                    .setLngLat([-98.4936, 29.4241])
+                    .addTo(map)
+
+        //DOES IT MATTER IF MAP API OR WEATHER API LOADED FIRST?
+
+
+
+
+            // Add zoom and rotation controls to the map.
+            map.addControl(new mapboxgl.NavigationControl({container: document.querySelector('body')}));
+
+            // Two ways to query the API:
+            // 1. With a string!
+            //$.get("https://api.openweathermap.org/data/2.5/onecall?lat=29.4241&lon=-98.4936&units=imperial&exclude=minutely,hourly&appid=" + OWM_TOKEN).done(function(data) {
+            //    console.log(data);
+            //});
+
+            // 2. With a string... AND AN OBJECT!!!
+
+            $.get("https://api.openweathermap.org/data/2.5/onecall", {
+                APPID: OWM_TOKEN,
+                lat: 29.4241,
+                lon: -98.4936,
+                units: "imperial",
+                exclude: "minutely, hourly"
+            }).done(function (data) {
+                console.log(data);
+
+        });
+
+        // FORECAST DATA FOR CARD
+        // RETURN -DAY, TEMP, HUMIDITY, HI, LO...
+        // NEED AN INPUT FOR USER TO ENTER CITY
+        // AUDI SAID WE'LL NEED THIS - https://docs.mapbox.com/mapbox-gl-js/example/flyto/
+
+
+
+
+
+
+
+    </script>
+    <!-- BOOTSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+            integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+            integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+</body>
+</html>
+
+<!--
+EXERCISES
+
+Create a new HTML file called weather_map.html.
+As you complete each step, commit your changes and push them to GitHub.
+Using HTML, CSS, jQuery, AJAX, and the OpenWeatherMap API, start by showing the current conditions for city you live in on your page.
+Update your layout and AJAX request(s) to display a five day forecast for the city you live in that looks like the screenshot below.
+If you want to add the icons the URLs for OpenWeatherMap's icons are formatted like: http://openweathermap.org/img/w/[icon].png where [icon] comes from the API response.
+Refer to your Mapbox API exercise. Recreate the map below your 5 day forecast. Read through the documentation for the Mapbox API and figure out how to allow the user to drop a pin on any place on the map. Once the user drops a pin, grab its coordinates and feed those into your OpenWeatherMap API. Update the five-day forecast with the information from those coordinates (you should also get rid of your input boxes at this point).
+Add a Mapbox text input to search by location and have the forecast update when a new location is searched.
+As a bonus make sure you can update the marker's position to the new search result.
+
+EXAMPLES
+https://java.codeup.com/jquery/ajax/weather-map/
+-->
