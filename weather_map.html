@@ -20,7 +20,11 @@
             padding: 0;
         }
 
-        #weather {
+        #container1 {
+
+        }
+
+        #weatherCards {
 
         }
 
@@ -31,25 +35,26 @@
 
     </style>
 </head>
-<body>
-    <!-- THIS IS WHERE THE PAGE STARTS. STARTING WITH THE BAR ACROSS THE TOP AS IN THE EXAMPLES -->
-    <nav class="navbar">
-        <p id="header">Weather App in P tag...</p>
-    </nav>
+<body class="bg-dark">
+    <div id="container1">
+        <!-- THIS IS WHERE THE PAGE STARTS. STARTING WITH THE BAR ACROSS THE TOP AS IN THE EXAMPLES -->
+        <nav class="navbar">
+            <p id="header">Weather App in P tag...</p>
+        </nav>
 
-    <h1>or Weather App in H1?</h1>
-    <!-- WEATHER FORECAST CARDS-->
-    <div id="weather">
-        <!-- PUT 5-DAY FORECAST HERE. CARDS? HOW TO POPULATE THE DATA TO THE CARDS? -->
-        <!-- How do we want to do this? Cards? We need the info for the current day + 4 more. Maybe list with bootstrap alignment in a row?<br>
-            We definitely need the weather one call API to populate the info here.-->
-        <div id="day1"></div>
-        <div id="day2"></div>
-        <div id="day3"></div>
-        <div id="day4"></div>
-        <div id="day5"></div>
+        <h1>or Weather App in H1?</h1>
+        <!-- WEATHER FORECAST CARDS-->
+        <div id="weatherCards" class="d-flex">
+            <!-- PUT 5-DAY FORECAST HERE. CARDS? HOW TO POPULATE THE DATA TO THE CARDS? -->
+            <!-- How do we want to do this? Cards? We need the info for the current day + 4 more. Maybe list with bootstrap alignment in a row?<br>
+                We definitely need the weather one call API to populate the info here.-->
+            <div id="day1" class="card bg-dark mb-3 mx-1 text-center flex-column"></div>
+            <div id="day2" class="card bg-dark mb-3 mx-1 text-center flex-column"></div>
+            <div id="day3" class="card bg-dark mb-3 mx-1 text-center flex-column"></div>
+            <div id="day4" class="card bg-dark mb-3 mx-1 text-center flex-column"></div>
+            <div id="day5" class="card bg-dark mb-3 mx-1 text-center flex-column"></div>
+        </div>
     </div>
-
     <hr>
 
     <div id="map" style="width: 100%; height: 700px">
