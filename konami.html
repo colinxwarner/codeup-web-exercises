@@ -1,82 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Konami Code</title>
+    <title>Konami Code</title><!--EXAMPLE FROM VIVIAN-->
+    <link rel="stylesheet" type="text/css" href="/css/konami.css">
 </head>
 <body>
 <h1>Konami Code</h1>
-<p></p>
-<div></div>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script> -->
+<p class="tryAgain">TRY AGAIN!!!</p>
+<div>
+    <img id = "emoji" src="/img/deadEmoji.png" style="display: none;">
+</div>
 
-<!-- https://codepen.io/kmaida/pen/oCkpt (LINK FROM ANN IN LUNA)-->
-var global = {
-
-konami: function() {
-var konamikeys = [38,38,40,40,37,39,37,39,66,65],
-started = false,
-count = 0;
-
-$(document).keydown(function(e){
-var reset = function() {
-started = false;
-count = 0;
-return;
-};
-
-console.log(e.keyCode);
-
-// Begin watching if first key in sequence was pressed.
-if(!started){
-if(e.keyCode == 38){
-started = true;
-}
-}
-
-// If we've started, pay attention to key presses, looking for right sequence.
-if (started){
-
-if (konamikeys[count] == e.keyCode){
-count++;
-} else {
-// Incorrect key, restart.
-reset();
-}
-if (count == 11){
-// Success!
-alert('Konami code entered! Do something cool here.');
-reset();
-}
-} else {
-reset();
-}
-});
-}
-}
-
-global.konami();
-
-<!--
-    (function() {
-        "use strict";
-        $().ready(function(){
-            let keyPresses = '';
-            let konamiCode = "3838404037393739666513";
-
-            $(document).keyup(function (event){
-                keyPresses = keyPresses.concat(event.keyCode);
-
-                console.log("keyPresses now: " + keyPresses);
-
-                if(keyPresses === konamiCode) {
-                    $('#freeLives').html("<strong>You have added 30 lives!!</strong>");
-                    $('#codeCorrect').html('<img src="https://i.pinimg.com/474x/f1/cb/9c/f1cb9c91cf5322233c5bc976030cfa9b.jpg">')
-                }
-            });
-
-        })
-    })();
-</script>
+<script src="/js/jquery-3.2.1.js"></script>
+<script src="/js/konami.js"></script>
+<!-- 		<script>
+			"use strict";
+			$(document).keyup(function(event){
+				console.log(event.keyCode);
+			});
+		</script> -->
 </body>
-</html> -->
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Konami Code</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Konami Code</h1>-->
+<!--<p></p>-->
+<!--<div></div>-->
+<!--<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script> &ndash;&gt;-->
+
+<!--&lt;!&ndash; https://codepen.io/kmaida/pen/oCkpt (LINK FROM ANN IN LUNA)&ndash;&gt;-->
+<!--var global = {-->
+
+<!--konami: function() {-->
+<!--var konamikeys = [38,38,40,40,37,39,37,39,66,65],-->
+<!--started = false,-->
+<!--count = 0;-->
+
+<!--$(document).keydown(function(e){-->
+<!--var reset = function() {-->
+<!--started = false;-->
+<!--count = 0;-->
+<!--return;-->
+<!--};-->
+
+<!--console.log(e.keyCode);-->
+
+<!--// Begin watching if first key in sequence was pressed.-->
+<!--if(!started){-->
+<!--if(e.keyCode == 38){-->
+<!--started = true;-->
+<!--}-->
+<!--}-->
+
+<!--// If we've started, pay attention to key presses, looking for right sequence.-->
+<!--if (started){-->
+
+<!--if (konamikeys[count] == e.keyCode){-->
+<!--count++;-->
+<!--} else {-->
+<!--// Incorrect key, restart.-->
+<!--reset();-->
+<!--}-->
+<!--if (count == 11){-->
+<!--// Success!-->
+<!--alert('Konami code entered! Do something cool here.');-->
+<!--reset();-->
+<!--}-->
+<!--} else {-->
+<!--reset();-->
+<!--}-->
+<!--});-->
+<!--}-->
+<!--}-->
+
+<!--global.konami();-->
+
+<!--&lt;!&ndash;-->
+<!--    (function() {-->
+<!--        "use strict";-->
+<!--        $().ready(function(){-->
+<!--            let keyPresses = '';-->
+<!--            let konamiCode = "3838404037393739666513";-->
+
+<!--            $(document).keyup(function (event){-->
+<!--                keyPresses = keyPresses.concat(event.keyCode);-->
+
+<!--                console.log("keyPresses now: " + keyPresses);-->
+
+<!--                if(keyPresses === konamiCode) {-->
+<!--                    $('#freeLives').html("<strong>You have added 30 lives!!</strong>");-->
+<!--                    $('#codeCorrect').html('<img src="https://i.pinimg.com/474x/f1/cb/9c/f1cb9c91cf5322233c5bc976030cfa9b.jpg">')-->
+<!--                }-->
+<!--            });-->
+
+<!--        })-->
+<!--    })();-->
+<!--</script>-->
+<!--</body>-->
+<!--</html> &ndash;&gt;-->

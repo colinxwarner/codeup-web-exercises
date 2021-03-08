@@ -1,0 +1,26 @@
+/* EXAMPLE FROM VIVIAN */
+
+@font-face{
+    font-family: swamp;
+    src: url(/fonts/Swamp_Death.ttf);
+}
+
+div {
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#emoji{
+    margin: 0 auto;
+    padding: 10px;
+    width: 50%;
+    display: block;
+
+}
+
+.tryAgain {
+    text-align: center;
+    display: none;
+    font-family: swamp;
+    font-size: 50px;
+}
