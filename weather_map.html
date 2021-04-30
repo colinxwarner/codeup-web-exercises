@@ -35,6 +35,7 @@
 
     </style>
 </head>
+
 <body class="bg-dark">
     <div id="container1">
         <!-- THIS IS WHERE THE PAGE STARTS. STARTING WITH THE BAR ACROSS THE TOP AS IN THE EXAMPLES -->
@@ -48,11 +49,11 @@
             <!-- PUT 5-DAY FORECAST HERE. CARDS? HOW TO POPULATE THE DATA TO THE CARDS? -->
             <!-- How do we want to do this? Cards? We need the info for the current day + 4 more. Maybe list with bootstrap alignment in a row?<br>
                 We definitely need the weather one call API to populate the info here.-->
-            <div id="day1" class="card bg-dark mb-3 mx-1 text-center flex-column"></div>
-            <div id="day2" class="card bg-dark mb-3 mx-1 text-center flex-column"></div>
-            <div id="day3" class="card bg-dark mb-3 mx-1 text-center flex-column"></div>
-            <div id="day4" class="card bg-dark mb-3 mx-1 text-center flex-column"></div>
-            <div id="day5" class="card bg-dark mb-3 mx-1 text-center flex-column"></div>
+            <div id="day1" class="card bg-dark text-center flex-column"></div>
+            <div id="day2" class="card bg-dark text-center flex-column"></div>
+            <div id="day3" class="card bg-dark text-center flex-column"></div>
+            <div id="day4" class="card bg-dark text-center flex-column"></div>
+            <div id="day5" class="card bg-dark text-center flex-column"></div>
         </div>
     </div>
     <hr>
@@ -95,36 +96,36 @@
 
 
 
-
-            // Add zoom and rotation controls to the map.
-            map.addControl(new mapboxgl.NavigationControl({container: document.querySelector('body')}));
-
-            // Two ways to query the API:
-            // 1. With a string!
-            //$.get("https://api.openweathermap.org/data/2.5/onecall?lat=29.4241&lon=-98.4936&units=imperial&exclude=minutely,hourly&appid=" + OWM_TOKEN).done(function(data) {
-            //    console.log(data);
-            //});
-
-            // 2. With a string... AND AN OBJECT!!!
-
-            $.get("https://api.openweathermap.org/data/2.5/onecall", {
-                APPID: OWM_TOKEN,
-                lat: 29.4241,
-                lon: -98.4936,
-                units: "imperial",
-                exclude: "minutely, hourly"
-            }).done(function (data) {
-                console.log(data);
-
-        });
-
-        // FORECAST DATA FOR CARD
-        // RETURN -DAY, TEMP, HUMIDITY, HI, LO...
-        // NEED AN INPUT FOR USER TO ENTER CITY
-        // AUDI SAID WE'LL NEED THIS - https://docs.mapbox.com/mapbox-gl-js/example/flyto/
-
-
-
+        //
+        //     // Add zoom and rotation controls to the map.
+        //     map.addControl(new mapboxgl.NavigationControl({container: document.querySelector('body')}));
+        //
+        //     // Two ways to query the API:
+        //     // 1. With a string!
+        //     //$.get("https://api.openweathermap.org/data/2.5/onecall?lat=29.4241&lon=-98.4936&units=imperial&exclude=minutely,hourly&appid=" + OWM_TOKEN).done(function(data) {
+        //     //    console.log(data);
+        //     //});
+        //
+        //     // 2. With a string... AND AN OBJECT!!!
+        //
+        //     $.get("https://api.openweathermap.org/data/2.5/onecall", {
+        //         APPID: OWM_TOKEN,
+        //         lat: 29.4241,
+        //         lon: -98.4936,
+        //         units: "imperial",
+        //         exclude: "minutely, hourly"
+        //     }).done(function (data) {
+        //         console.log(data);
+        //
+        // });
+        //
+        // // FORECAST DATA FOR CARD
+        // // RETURN -DAY, TEMP, HUMIDITY, HI, LO...
+        // // NEED AN INPUT FOR USER TO ENTER CITY
+        // // AUDI SAID WE'LL NEED THIS - https://docs.mapbox.com/mapbox-gl-js/example/flyto/
+        //
+        //
+        //
 
 
 
@@ -138,7 +139,7 @@
 </body>
 </html>
 
-<!--
+
 EXERCISES
 
 Create a new HTML file called weather_map.html.
